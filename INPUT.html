@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .button{
+        background-color: #FF5733
+        font-weight: bold
+    }
+    .italic {
+        font-style: italic;
+        color: green;
+    }
+    body {
+        background-image: url("image1.jpg") ;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: 1300px 700px;
+    }
+    .form{
+        font-weight: bold
+    }
+
+</style>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="Nutrition.js"></script>
+</head>
+<body>
+
+<h1 class="italic" align="center" >
+    NUTRITION INFORMATION
+</h1>
+</br>
+<div ng-app="audio" ng-controller="audioctrl" >
+
+    <form align="center" >
+
+        Enter Item: <input ng-model="Ccode" placeholder="Item name">
+        <br>
+        <br>
+        <button class="" id="btn" ng-click="getaudio()"> Show Nutrition Details </button>
+        <br>
+        <br>
+        <div  ng-if="Ccode" ng-show="visible">
+            <table style="width:30%" align="center">
+                <tr>
+                    <th class="italic"><h3>Calories</h3></th>
+                    <th class="italic"><h3>Serving Weight</h3></th>
+
+                </tr>
+                <tr>
+                    <th> {{temp[0].fields.nf_calories}}</th>
+                    <th>{{temp[0].fields.nf_serving_weight_grams}}gms</th>
+                </tr>
+            </table>
+          <br>
+          <br>
+
+        </div>
+        <audio controls="" autoplay="" name="media" ng-bind-html="html">
+
+    </form>
+
+</div>
+</body>
+</html>
